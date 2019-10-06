@@ -1,0 +1,30 @@
+{
+  "name": "Nzbget",
+  "version": "latest",
+  "slug": "nzbget_docker",
+  "description": "Nzbget add-on based on the prebuilt docker image from linuxserver",
+  "url": "https://github.com/lbouriez/hassio-addons/nzbget",
+  "startup": "services",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "i386"
+  ],
+  "ports": {
+    "6789/tcp": 6789
+  },
+  "map": [
+    "backup:rw",
+    "share:rw",
+    "ssl"
+  ],
+  "webui": "http://[HOST]:[PORT:6789]",
+  "boot": "auto",
+  "environment": {
+    "PUID": "0",
+    "PGID": "0"
+  },
+  "options": {},
+  "schema": {}
+}

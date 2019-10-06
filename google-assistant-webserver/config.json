@@ -1,0 +1,21 @@
+{
+  "name": "Google Assistant Webserver",
+  "version": "0.0.4",
+  "description": "Webservice for the Google Assistant SDK - mofified version of the original by BubsYourUncle with adjustable broadcast command",
+  "slug": "google_assistant_webserver",
+  "startup": "application",
+  "boot": "auto",
+  "arch": ["armhf", "amd64"],
+  "devices": ["/dev/snd:/dev/snd:rwm"],
+  "ports": {
+    "9324/tcp": 9324,
+    "5000/tcp": 5000
+  },
+  "webui": "http://[HOST]:[PORT:9324]",
+  "options": {
+    "broadcast_cmd": "broadcast"
+  },
+  "schema": {
+    "broadcast_cmd": "str"
+  }
+}
