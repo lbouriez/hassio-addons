@@ -1,6 +1,6 @@
 {
   "name": "Radarr",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "slug": "radarr_docker",
   "description": "Radarr add-on based on the prebuilt docker image from linuxserver",
   "url": "https://github.com/marcelveldt/hassio-addons-repo/radarr",
@@ -23,8 +23,9 @@
   ],
   "webui": "http://[HOST]:[PORT:7878]",
   "ssl": false,
-  "ingress": true,
+  "ingress": false,
   "ingress_port": 7878,
+  "ingress_entry": "radarr/",
   "boot": "auto",
   "environment": {
     "PUID": "0",
