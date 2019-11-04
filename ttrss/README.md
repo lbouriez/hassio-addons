@@ -19,6 +19,8 @@ comparison to installing any other Hass.io add-on.
 6. Carefully configure the add-on to your preferences, see the official documentation for for that.
 
 ## Configuration
+Due to a lack of knowledge in hassion addons, the configuration will be done manually on the first startup instead of using the hassio options.  
+If someone wants to help me... :)
 
 1. Access to your instance on http://HASSIO_IP:32790
 2. Configure your database access
