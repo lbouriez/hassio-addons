@@ -1,0 +1,30 @@
+{
+  "name": "Tt-rss",
+  "version": "latest",
+  "slug": "ttrss_docker",
+  "description": "Tt-rss add-on based on the prebuilt docker image from linuxserver",
+  "url": "https://github.com/lbouriez/hassio-addons/ttrss",
+  "startup": "services",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf"
+  ],
+  "ports": {
+    "80/tcp": 32790,
+    "443/tcp": 32789
+  },
+  "map": [
+    "backup:rw",
+    "share:rw",
+    "ssl"
+  ],
+  "webui": "http://[HOST]:[PORT:32790]",
+  "boot": "auto",
+  "environment": {
+    "PUID": "0",
+    "PGID": "0"
+  },
+  "options": {},
+  "schema": {}
+}
