@@ -1,4 +1,4 @@
-FROM linuxserver/tt-rss
+FROM lunik1/tt-rss
 
 # MOFIFY DATA PATH
 RUN sed -i "s|/config|/data|g" /etc/services.d/update-feeds/run
