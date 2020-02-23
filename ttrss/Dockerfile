@@ -8,4 +8,6 @@ RUN sed -i "s|/config/|/data/|g" /etc/cont-init.d/30-config
 RUN sed -i "s|/config|/data|g" /defaults/default
 RUN sed -i "s|/config|/data|g" /defaults/default.incontainer
 
+RUN chmod -R 777 /data
+
 VOLUME [ "/data" ]
