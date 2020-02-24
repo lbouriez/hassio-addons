@@ -1,29 +1,29 @@
 {
-  "name": "tt-rss",
-  "version": "0.1.5",
-  "slug": "ttrss_docker",
-  "description": "Tiny-rss add-on based on the prebuilt docker image from linuxserver",
-  "url": "https://github.com/lbouriez/hassio-addons/tree/master/ttrss",
-  "startup": "services",
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armhf"
-  ],
-  "ports": {
-    "80/tcp": 32790
-  },
-  "map": [
-    "backup:rw",
-    "share:rw",
-    "ssl"
-  ],
-  "webui": "http://[HOST]:[PORT:32790]",
-  "boot": "auto",
-  "environment": {
-    "PUID": "100",
-    "PGID": "100"
-  },
-  "options": {},
-  "schema": {}
+    "name": "tt-rss",
+    "version": "0.1.9",
+    "slug": "ttrss_docker",
+    "description": "Tiny-rss add-on based on the prebuilt docker image from linuxserver",
+    "url": "https://github.com/lbouriez/hassio-addons/tree/master/ttrss",
+    "startup": "services",
+    "arch": [
+        "aarch64",
+        "amd64",
+        "armhf"
+    ],
+    "ports": {
+        "80/tcp": 32790
+    },
+    "map": [
+        "backup:rw",
+        "share:rw",
+        "ssl"
+    ],
+    "webui": "http://[HOST]:[PORT:32790]",
+    "boot": "auto",
+    "environment": {
+        "PUID": "100",
+        "PGID": "100"
+    },
+    "options": {},
+    "schema": {}
 }
