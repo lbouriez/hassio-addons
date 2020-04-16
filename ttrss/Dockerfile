@@ -11,3 +11,4 @@ RUN sed -i "s|/config|/data|g" /defaults/default.incontainer
 VOLUME [ "/data" ]
 
 RUN chmod -R 777 /data
+RUN chmod -R 777 /var/www/
