@@ -25,3 +25,5 @@ Configure the addon with the parameters. You can use the mariadb addon.
 2. Configure the addon
 3. Access to your instance on http://HASSIO_IP:32790
 4. Enjoy
+
+If you encouter an access right issue, bash into the container and do: `chmod -R 777 /data /var/www/`

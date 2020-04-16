@@ -1,0 +1,29 @@
+{
+  "name": "Putio",
+  "version": "0.1.20",
+  "slug": "putio",
+  "description": "Put.io movie cleanup!",
+  "startup": "services",
+  "legacy": true,
+  "url": "https://github.com/lbouriez/hassio-addons/tree/master/putio",
+  "arch": [
+      "aarch64",
+      "amd64",
+      "armhf"
+  ],
+  "boot": "auto",
+  "environment": {
+      "PUID": "100",
+      "PGID": "100"
+  },
+  "options": {
+    "HOST": "ftp.put.io",
+    "USER": "username",
+    "PASSWORD": "password"
+  },
+  "schema": {
+    "HOST": "str",
+    "USER": "str",
+    "PASSWORD": "str"
+  }
+}
