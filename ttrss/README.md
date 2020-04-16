@@ -19,9 +19,9 @@ comparison to installing any other Hass.io add-on.
 6. Carefully configure the add-on to your preferences, see the official documentation for for that.
 
 ## Configuration
-Due to a lack of knowledge in hassion addons, the configuration will be done manually on the first startup instead of using the hassio options.  
-If someone wants to help me... :)
+Configure the addon with the parameters. You can use the mariadb addon.
 
-1. Access to your instance on http://HASSIO_IP:32790
-2. Configure your database access
-3. Enjoy
+1. Install and set your DB (MariaDB addon)
+2. Configure the addon
+3. Access to your instance on http://HASSIO_IP:32790
+4. Enjoy

@@ -2,7 +2,7 @@
 Repository of custom addons for hass.io
 
 
-## [Inadyn][addon-inadyn]
+## Inadyn
 
 ### About
 
@@ -100,36 +100,6 @@ the tokens in ddns_path are outlined in the `inadyn.conf(5)` man page.
 
 
 
-## [Google Assistant Webserver][addon-google-assistant-webserver]
+## Tiny-RSS
 
-Webservice for the Google Assistant SDK - mofified version of the original by @AndBobsYourUncle with customizable broadcast command For my own personal use but maybe some other non-English hassio users can benefit from this too.
-
-
-## [NZBget][addon-nzbget]
-
-Nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.
-
-
-## [Playlistsyncer][addon-playlistsyncer]
-
-This addon/docker image will allow you to sync playlists between several streaming services. I created this as a personal project but this might come in handy for others too. Supported streaming services: Spotify, Tidal and Qobuz Special: Also supports Roon (www.roonlabs.com) media software for syncing playlists.
-
-
-## [Radarr][addon-radarr]
-
-A fork of Sonarr to work with movies à la Couchpotato.
-
-
-## [Sonarr][addon-sonarr]
-
-Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
-
-
-## [Roon][addon-roon]
-
-Roon Core Server (www.roonlabs.com) - The core manages your music collection from many sources, and builds an interconnected digital library using enhanced information from Roon.
-
-
-## [Spotweb][addon-spotweb]
-
-Spotweb add-on based on the docker image erikdevries/spotweb
+Run a instance of Tiny-RSS in hass.io.
