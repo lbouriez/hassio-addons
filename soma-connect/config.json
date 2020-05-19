@@ -1,0 +1,23 @@
+{
+    "name": "soma-connect",
+    "version": "0.1",
+    "slug": "soma_connect",
+    "description": "Let you connect your soma cover to homeassistant",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "startup": "services",
+    "boot": "auto",
+    "options": {},
+    "schema": {},
+    "ports": {
+        "80/tcp": 32790
+    },
+    "map": [
+        "backup:rw",
+        "share:rw",
+        "ssl"
+    ],
+    "environment": {
+        "PUID": "100",
+        "PGID": "100"
+    }
+}
