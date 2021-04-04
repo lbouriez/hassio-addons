@@ -22,4 +22,4 @@ jobs:
         with:
           addon: ${{ github.event.client_payload.addon }}
           repository: ${{ github.repository }}
-          token: ${{ secrets.UPDATER_TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}

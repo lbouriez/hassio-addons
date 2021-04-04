@@ -1,0 +1,8 @@
+---
+channel: stable
+addons:
+  plex:
+    repository: lbouriez/addon-plex
+    target: plex
+    image: ghcr.io/lbouriez/plex/{arch}
+  

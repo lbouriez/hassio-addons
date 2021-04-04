@@ -1,6 +1,6 @@
 {
   "name": "Plex Media Server with NAS",
-  "version": "2.5.2.1",
+  "version": "2.2.5",
   "slug": "plex",
   "description": "Recorded media, live TV, online news, and podcasts ready to stream.",
   "url": "https://github.com/lbouriez/addon-plex",
