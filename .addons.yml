@@ -5,4 +5,8 @@ addons:
     repository: lbouriez/addon-plex
     target: plex
     image: ghcr.io/lbouriez/addon-plex/{arch}
+  ttrss:
+    repository: lbouriez/addon-tt-rss
+    target: ttrss
+    image: ghcr.io/lbouriez/addon-tt-rss/{arch}
   
