@@ -9,4 +9,3 @@ addons:
     repository: lbouriez/addon-tt-rss
     target: ttrss
     image: ghcr.io/lbouriez/addon-tt-rss/{arch}
-  
