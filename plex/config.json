@@ -1,14 +1,23 @@
 {
   "name": "Plex Media Server with NAS",
-  "version": "2.2.5",
+  "version": "2.5.2",
   "slug": "plex",
   "description": "Recorded media, live TV, online news, and podcasts ready to stream.",
   "url": "https://github.com/lbouriez/addon-plex",
   "webui": "http://[HOST]:[PORT:32400]/web",
   "startup": "services",
-  "arch": ["aarch64", "amd64", "armv7", "i386"],
-  "image": "ghcr.io/lbouriez/addon-plex/{arch}",
-  "map": ["media:rw", "share:rw", "ssl"],
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "i386"
+  ],
+  "image": "ghcr.io/lbouriez/plex/{arch}",
+  "map": [
+    "media:rw",
+    "share:rw",
+    "ssl"
+  ],
   "ports": {
     "1900/udp": 1900,
     "3005/tcp": 3005,
@@ -22,7 +31,10 @@
     "33400/tcp": 33400,
     "33443/tcp": 33443
   },
-  "privileged": ["SYS_ADMIN", "DAC_READ_SEARCH"],
+  "privileged": [
+    "SYS_ADMIN",
+    "DAC_READ_SEARCH"
+  ],
   "full_access": true,
   "ports_description": {
     "1900/udp": "Plex DLNA Server",
@@ -41,7 +53,9 @@
   "options": {
     "claim_code": "",
     "webtools": false,
-    "networkdisks": ["<//SERVER/SHARE>"],
+    "networkdisks": [
+      "<//SERVER/SHARE>"
+    ],
     "cifsusername": "<username>",
     "cifspassword": "<password>",
     "cifsversion": "3.0"
@@ -50,7 +64,9 @@
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
     "claim_code": "str",
     "webtools": "bool",
-    "networkdisks": ["str"],
+    "networkdisks": [
+      "str"
+    ],
     "cifsusername": "str",
     "cifspassword": "str",
     "cifsversion": "list(3.0|2.1|2.0|1.0)?"
