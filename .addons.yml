@@ -4,5 +4,5 @@ addons:
   plex:
     repository: lbouriez/addon-plex
     target: plex
-    image: ghcr.io/lbouriez/plex/{arch}
+    image: ghcr.io/lbouriez/addon-plex/{arch}
   

@@ -12,7 +12,7 @@
     "armv7",
     "i386"
   ],
-  "image": "ghcr.io/lbouriez/plex/{arch}",
+  "image": "ghcr.io/lbouriez/addon-plex/{arch}",
   "map": [
     "media:rw",
     "share:rw",
