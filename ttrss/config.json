@@ -1,6 +1,6 @@
 {
   "name": "tt-rss",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "slug": "ttrss",
   "description": "Tiny-rss add-on based on the prebuilt docker image from linuxserver",
   "url": "https://github.com/lbouriez/hassio-addons/tree/master/ttrss",
