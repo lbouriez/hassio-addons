@@ -30,4 +30,8 @@ Configure the addon with the parameters. You can use the mariadb addon.
 1. Enjoy
 
 If you encouter an access right issue, access the container using bash and do:
-`chmod -R 777 /data /var/www/`
+`chmod -R 777 /var/www/`
+
+## Backup
+
+This plugin use Mysql to store the data, make sure to backup your database
