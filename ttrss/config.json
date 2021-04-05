@@ -1,6 +1,6 @@
 {
   "name": "tt-rss",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "slug": "ttrss",
   "description": "Tiny-rss add-on based on the prebuilt docker image from linuxserver",
   "url": "https://github.com/lbouriez/hassio-addons/tree/master/ttrss",
@@ -43,7 +43,7 @@
     "TTRSS_DB_USER": "str",
     "TTRSS_DB_NAME": "str",
     "TTRSS_DB_PASS": "password",
-    "TTRSS_DB_PORT": "int?",
-    "TTRSS_SELF_URL_PATH": "url?"
+    "TTRSS_DB_PORT": "port",
+    "TTRSS_SELF_URL_PATH": "url"
   }
 }
