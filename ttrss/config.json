@@ -1,11 +1,10 @@
 {
   "name": "tt-rss",
-  "version": "0.9.12",
+  "version": "0.9.13",
   "slug": "ttrss",
   "description": "Tiny-rss add-on based on the prebuilt docker image from linuxserver",
-  "url": "https://github.com/lbouriez/hassio-addons/tree/master/ttrss",
+  "url": "https://github.com/lbouriez/hassio-addons",
   "startup": "services",
-  "legacy": true,
   "arch": [
     "aarch64",
     "amd64",
@@ -18,11 +17,7 @@
   "ports_description": {
     "80/tcp": "tt-rss web interface"
   },
-  "map": [
-    "backup:rw",
-    "share:rw",
-    "ssl"
-  ],
+  "map": [],
   "webui": "http://[HOST]:[PORT:32790]",
   "environment": {
     "PUID": "100",
