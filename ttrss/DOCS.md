@@ -2,7 +2,7 @@
 
 ## About
 
-Tt-rss add-on based on the prebuilt docker image from linuxserver
+Tt-rss add-on based on the prebuilt docker image from @lunik1
 
 Tt-rss is an open source web-based news feed (RSS/Atom) reader and aggregator.
 It is designed to allow you to read news from any location,
