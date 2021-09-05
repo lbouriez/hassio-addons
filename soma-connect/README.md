@@ -7,6 +7,8 @@ A simple way to control your soma covers.
 This add-on provides a alternative to the soma connect image by using the bluetooth from your host to control the soma covers.
 Info to install: https://github.com/hoobs-org/soma-connect
 
+Not working for now, version can be downloaded from: https://support.somasmarthome.com/hc/en-us/articles/360035521234-Install-SOMA-Connect-software
+
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
