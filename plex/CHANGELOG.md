@@ -1,1 +1,1 @@
-https://github.com/hassio-addons/addon-plex/releases/tag/v2.6.1
+https://github.com/hassio-addons/addon-plex/releases/tag/v2.6.3
