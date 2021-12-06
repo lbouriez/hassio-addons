@@ -18,7 +18,8 @@ options:
   cifspassword: <password>
   cifsusername: <username>
   cifsversion: 3.0
-  networkdisks: <//SERVER/SHARE>
+  networkdisks:
+    - <//SERVER/SHARE>
 panel_icon: mdi:selection-ellipse
 ports:
   8989/tcp: 8989
@@ -29,7 +30,8 @@ schema:
   cifsusername: str
   cifsversion: list(3.0|2.1|2.0|1.0)?
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
-  networkdisks: str
+  networkdisks:
+    - str
 slug: sonarr
 url: https://github.com/lbouriez/hassio-addons
 version: 0.0.4
