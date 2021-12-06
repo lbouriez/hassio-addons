@@ -4,8 +4,8 @@ arch:
 - armv7
 description: Sonarr is a PVR for usenet and bittorrent users.
 environment:
-  PGID: "0"
-  PUID: "0"
+  PGID: '0'
+  PUID: '0'
 full_access: true
 image: ghcr.io/lbouriez/addon-sonarr/{arch}
 init: false
@@ -18,21 +18,23 @@ options:
   cifspassword: <password>
   cifsusername: <username>
   cifsversion: 3.0
-  networkdisks:
-    - <//SERVER/SHARE>
+  networkdisks: []
 panel_icon: mdi:selection-ellipse
 ports:
   8989/tcp: 8989
 ports_description:
   8989/tcp: The port for the Sonarr webinterface
+privileged:
+- SYS_ADMIN
+- DAC_READ_SEARCH
 schema:
   cifspassword: str
   cifsusername: str
   cifsversion: list(3.0|2.1|2.0|1.0)?
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   networkdisks:
-    - str
+  - str
 slug: sonarr
 url: https://github.com/lbouriez/hassio-addons
-version: 0.0.4
+version: 0.0.5
 webui: http://[HOST]:[PORT:8989]
