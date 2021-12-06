@@ -19,6 +19,9 @@ options:
   claim_code: ''
   networkdisks: []
   webtools: false
+privileged:
+  - SYS_ADMIN
+  - DAC_READ_SEARCH
 ports:
   3005/tcp: 3005
   32400/tcp: 32400
