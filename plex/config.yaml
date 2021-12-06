@@ -19,9 +19,6 @@ options:
   claim_code: ''
   networkdisks: []
   webtools: false
-privileged:
-  - SYS_ADMIN
-  - DAC_READ_SEARCH
 ports:
   3005/tcp: 3005
   32400/tcp: 32400
@@ -44,6 +41,9 @@ ports_description:
   33400/tcp: WebTools
   33443/tcp: WebTools
   8324/tcp: Plex for Roku via Plex Companion
+privileged:
+- SYS_ADMIN
+- DAC_READ_SEARCH
 schema:
   cifspassword: str
   cifsusername: str
@@ -55,6 +55,6 @@ schema:
   webtools: bool
 slug: plex
 startup: services
-url: https://github.com/hassio-addons/addon-plex
-version: 2.7.10
+url: https://github.com/lbouriez/addon-plex
+version: 2.7.11
 webui: http://[HOST]:[PORT:32400]/web
