@@ -12,7 +12,11 @@ map:
 - ssl
 name: Plex Media Server
 options:
+  cifspassword: <password>
+  cifsusername: <username>
+  cifsversion: 3.0
   claim_code: ''
+  networkdisks: '[<//SERVER/SHARE>]'
   webtools: false
 ports:
   3005/tcp: 3005
@@ -37,11 +41,16 @@ ports_description:
   33443/tcp: WebTools
   8324/tcp: Plex for Roku via Plex Companion
 schema:
+  cifspassword: str
+  cifsusername: str
+  cifsversion: list(3.0|2.1|2.0|1.0)?
   claim_code: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  networkdisks:
+  - str
   webtools: bool
 slug: plex
 startup: services
 url: https://github.com/hassio-addons/addon-plex
-version: 2.7.7
+version: 2.7.8
 webui: http://[HOST]:[PORT:32400]/web
