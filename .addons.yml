@@ -9,3 +9,7 @@ addons:
     repository: lbouriez/addon-tt-rss
     target: ttrss
     image: ghcr.io/lbouriez/addon-tt-rss/{arch}
+  sonarr:
+    repository: lbouriez/addon-sonarr
+    target: sonarr
+    image: ghcr.io/lbouriez/addon-sonarr/{arch}
