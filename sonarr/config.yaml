@@ -4,8 +4,8 @@ arch:
 - armv7
 description: Sonarr is a PVR for usenet and bittorrent users.
 environment:
-  PGID: 0
-  PUID: 0
+  PGID: "0"
+  PUID: "0"
 full_access: true
 image: ghcr.io/lbouriez/addon-sonarr/{arch}
 init: false
