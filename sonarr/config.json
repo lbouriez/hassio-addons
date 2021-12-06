@@ -1,6 +1,6 @@
 {
   "name": "Sonarr",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "slug": "sonarr",
   "description": "Sonarr is a PVR for usenet and bittorrent users.",
   "url": "https://github.com/lbouriez/hassio-addons",
@@ -20,6 +20,7 @@
   "ports_description": {
     "8989/tcp": "The port for the Sonarr webinterface"
   },
+  "hassio_api": true,
   "map": [
     "share:rw",
     "ssl:ro",
