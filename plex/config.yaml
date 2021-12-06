@@ -17,7 +17,7 @@ options:
   cifsusername: <username>
   cifsversion: 3.0
   claim_code: ''
-  networkdisks: <//SERVER/SHARE>
+  networkdisks: []
   webtools: false
 ports:
   3005/tcp: 3005
@@ -47,10 +47,11 @@ schema:
   cifsversion: list(3.0|2.1|2.0|1.0)?
   claim_code: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
-  networkdisks: str
+  networkdisks:
+  - str
   webtools: bool
 slug: plex
 startup: services
 url: https://github.com/hassio-addons/addon-plex
-version: 2.7.9
+version: 2.7.10
 webui: http://[HOST]:[PORT:32400]/web
