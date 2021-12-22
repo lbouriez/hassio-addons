@@ -13,3 +13,7 @@ addons:
     repository: lbouriez/addon-sonarr
     target: sonarr
     image: ghcr.io/lbouriez/addon-sonarr/{arch}
+  jackett:
+    repository: lbouriez/addon-jackett
+    target: jackett
+    image: ghcr.io/lbouriez/addon-jackett/{arch}
