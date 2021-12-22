@@ -36,5 +36,5 @@ schema:
   - str
 slug: sonarr
 url: https://github.com/lbouriez/hassio-addons
-version: 0.0.5
+version: 0.0.7
 webui: http://[HOST]:[PORT:8989]
