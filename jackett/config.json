@@ -1,6 +1,6 @@
 {
   "name": "Jackett",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "slug": "jackett",
   "description": "An addon to add jackett to hassio",
   "url": "https://github.com/lbouriez/hassio-addons",
@@ -21,18 +21,16 @@
   "ingress": true,
   "options": {
     "black_hole": "/share/blackhole",
-    "api_key": "lbok9s1r5bkv4h3unwmfilb6j1lv9ikh"
+    "api_key": ""
   },
   "schema": {
     "black_hole": "str",
     "api_key": "str"
   },
   "ports": {
-    "9117/tcp": null,
     "8889/tcp": null
   },
   "ports_description": {
-    "9117/tcp": "Port for the web interface (not needed with ingress)",
     "8889/tcp": "Port of Jackett"
   }
 }
