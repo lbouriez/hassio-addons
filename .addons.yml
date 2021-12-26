@@ -17,3 +17,7 @@ addons:
     repository: lbouriez/addon-jackett
     target: jackett
     image: ghcr.io/lbouriez/addon-jackett/{arch}
+  radarr:
+    repository: lbouriez/addon-radarr
+    target: radarr
+    image: ghcr.io/lbouriez/addon-radarr/{arch}
