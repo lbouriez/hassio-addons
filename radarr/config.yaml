@@ -1,0 +1,40 @@
+arch:
+- aarch64
+- amd64
+- armv7
+description: "A fork of Sonarr to work with movies \xE0 la Couchpotato."
+environment:
+  PUID: "0"
+  PGID: "0"
+image: ghcr.io/lbouriez/addon-radarr/{arch}
+full_access: true
+privileged:
+  - SYS_ADMIN
+  - DAC_READ_SEARCH
+init: false
+map:
+- share:rw
+- ssl:ro
+- media:rw
+name: Radarr
+options:
+  cifspassword: <password>
+  cifsusername: <username>
+  cifsversion: 3.0
+  networkdisks: []
+panel_icon: mdi:selection-ellipse
+ports:
+  7878/tcp: 7878
+ports_description:
+  7878/tcp: The port for the Radarr webinterface
+schema:
+  cifspassword: str
+  cifsusername: str
+  cifsversion: list(3.0|2.1|2.0|1.0)?
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  networkdisks:
+  - str
+slug: radarr
+url: https://github.com/lbouriez/hassio-addons
+version: 0.0.1
+webui: http://[HOST]:[PORT:7878]
