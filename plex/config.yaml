@@ -56,5 +56,5 @@ schema:
 slug: plex
 startup: services
 url: https://github.com/lbouriez/addon-plex
-version: 2.7.11
+version: 2.7.12
 webui: http://[HOST]:[PORT:32400]/web
