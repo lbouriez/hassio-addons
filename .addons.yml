@@ -21,3 +21,7 @@ addons:
     repository: lbouriez/addon-radarr
     target: radarr
     image: ghcr.io/lbouriez/addon-radarr/{arch}
+  inadyn:
+    repository: lbouriez/addon-inadyn
+    target: inadyn
+    image: ghcr.io/lbouriez/addon-inadyn/{arch}
