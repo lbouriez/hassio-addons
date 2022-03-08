@@ -25,3 +25,7 @@ addons:
     repository: lbouriez/addon-inadyn
     target: inadyn
     image: ghcr.io/lbouriez/addon-inadyn/{arch}
+  whoogle-search:
+    repository: lbouriez/addon-whoogle-search
+    target: whoogle-search
+    image: ghcr.io/lbouriez/addon-whoogle-search/{arch}

@@ -1,0 +1,1 @@
+Based on https://github.com/lbouriez/hassio-addons-alexbelgium/tree/master/inadyn 2.9.1-6
