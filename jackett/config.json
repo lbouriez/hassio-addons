@@ -1,6 +1,6 @@
 {
   "name": "Jackett",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "slug": "jackett",
   "description": "An addon to add jackett to hassio",
   "url": "https://github.com/lbouriez/hassio-addons",
@@ -16,7 +16,6 @@
     "ssl"
   ],
   "hassio_api": true,
-  "auth_api": false,
   "apparmor": false,
   "ingress": true,
   "options": {
