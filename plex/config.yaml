@@ -6,6 +6,9 @@ arch:
 backup_exclude:
 - '**/Plex Media Server/Cache/**'
 - '**/Plex Media Server/Plug-in Support/Caches/**'
+- '**/Plex Media Server/Logs/**'
+- '**/Plex Media Server/Crash Reports/**'
+- '**/Plex Media Server/Diagnostics/**'
 description: Recorded media, live TV, online news, and podcasts ready to stream.
 full_access: true
 hassio_api: true
@@ -59,5 +62,5 @@ schema:
 slug: plex
 startup: services
 url: https://github.com/lbouriez/addon-plex
-version: 2.7.13
+version: 2.9.0
 webui: http://[HOST]:[PORT:32400]/web

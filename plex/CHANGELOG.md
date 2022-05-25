@@ -1,1 +1,1 @@
-Bump from the official addon v2.7.5
+Bump from official version  v2.9.0
