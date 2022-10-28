@@ -4,13 +4,10 @@ arch:
 - armv7
 description: "A fork of Sonarr to work with movies \xE0 la Couchpotato."
 environment:
-  PUID: "0"
-  PGID: "0"
-image: ghcr.io/lbouriez/addon-radarr/{arch}
+  PGID: '0'
+  PUID: '0'
 full_access: true
-privileged:
-  - SYS_ADMIN
-  - DAC_READ_SEARCH
+image: ghcr.io/lbouriez/addon-radarr/{arch}
 init: false
 map:
 - share:rw
@@ -27,6 +24,9 @@ ports:
   7878/tcp: 7878
 ports_description:
   7878/tcp: The port for the Radarr webinterface
+privileged:
+- SYS_ADMIN
+- DAC_READ_SEARCH
 schema:
   cifspassword: str
   cifsusername: str
@@ -36,5 +36,5 @@ schema:
   - str
 slug: radarr
 url: https://github.com/lbouriez/hassio-addons
-version: 0.0.1
+version: 0.0.3
 webui: http://[HOST]:[PORT:7878]
