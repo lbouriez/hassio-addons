@@ -131,6 +131,11 @@ restart to restore those options. Container, AppArmor and HA permissions still
 apply; this does not grant host root access. Commands and HA changes can run
 without asking you first.
 
+The field is optional for compatibility with existing saved settings; absent
+means off. If HA reports `Missing option 'yolo_mode'` on version 0.4.2, add
+`yolo_mode: true` (or `false`) in the App options YAML and save, or update to
+0.4.3 or later. This is an App option, not an entry in HA's `configuration.yaml`.
+
 ## Home Assistant MCP
 
 Enable Home Assistant's official [Model Context Protocol Server](https://www.home-assistant.io/integrations/mcp_server/)

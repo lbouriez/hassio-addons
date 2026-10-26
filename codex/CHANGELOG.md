@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2026-10-26
+
+### Fixed
+- Make `yolo_mode` optional in the HA schema and omit its options default so saved configurations from before 0.4.2 remain valid. An absent value still means YOLO is off at runtime; explicit true/false values are preserved.
+- Validate optional schema fields independently of defaults and exercise startup with saved options that omit `yolo_mode`.
+
 ## [0.4.2] - 2026-10-26
 
 ### Added
