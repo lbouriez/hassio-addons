@@ -1,0 +1,59 @@
+---
+configuration:
+  enable_mcp:
+    name: Enable Home Assistant MCP
+    description: >-
+      Enable the Home Assistant MCP server for direct entity and service
+      interaction from Codex. Allows Codex to query states, call services,
+      and interact with your smart home.
+  terminal_font_size:
+    name: Terminal Font Size
+    description: >-
+      Font size for the web terminal in pixels (10-24).
+      Adjust for readability on your display.
+  terminal_theme:
+    name: Terminal Theme
+    description: >-
+      Color theme for the web terminal.
+      Choose 'dark' for dark backgrounds or 'light' for light backgrounds.
+  working_directory:
+    name: Working Directory
+    description: >-
+      The default working directory when Codex starts.
+      Use /homeassistant for direct access to HA configuration files.
+  session_persistence:
+    name: Session Persistence
+    description: >-
+      Enable tmux session persistence. When enabled, your terminal session
+      survives browser refreshes and disconnects. Leave disabled for the
+      smoothest first sign-in flow, then enable for long-running work.
+  default_model:
+    name: Default Model
+    description: >-
+      Startup model for Codex. Leave blank to use the recommended model for your account. Use /model to switch
+      during a session.
+  codex_permissions:
+    name: Codex Access Level
+    description: >-
+      Default local sandbox profile for Codex. Workspace allows normal
+      Home Assistant project work. Full access maps to sandbox danger-full-access
+      and removes local sandbox restrictions.
+  codex_approval_policy:
+    name: Codex Approval Policy
+    description: >-
+      Controls when Codex asks before running actions. Use on-request for
+      interactive safety, untrusted to ask for non-trusted commands, or never
+      for autonomous execution without approval prompts.
+  auto_update_codex:
+    name: Auto-update Codex CLI
+    description: >-
+      Check for the latest Codex CLI on startup with a bounded npm install.
+      Disabled by default so startup remains predictable.
+  codex_update_timeout:
+    name: Codex Update Timeout
+    description: >-
+      Maximum seconds to wait for the optional Codex CLI startup update.
+      Applies only when auto-update is enabled.
+
+network:
+  7681/tcp: Web Terminal (ttyd)

@@ -1,0 +1,61 @@
+---
+configuration:
+  enable_mcp:
+    name: Habilitar MCP de Home Assistant
+    description: >-
+      Habilita el servidor MCP de Home Assistant para interacción directa con
+      entidades y servicios desde Codex. Permite que Codex consulte estados,
+      llame servicios e interactúe con tu hogar inteligente.
+  terminal_font_size:
+    name: Tamaño de Fuente del Terminal
+    description: >-
+      Tamaño de fuente del terminal web en píxeles (10-24).
+      Ajusta para mejor legibilidad en tu pantalla.
+  terminal_theme:
+    name: Tema del Terminal
+    description: >-
+      Tema de colores del terminal web.
+      Elige 'dark' para fondo oscuro o 'light' para fondo claro.
+  working_directory:
+    name: Directorio de Trabajo
+    description: >-
+      El directorio predeterminado cuando Codex inicia.
+      Usa /homeassistant para acceso directo a los archivos de configuración de HA.
+  session_persistence:
+    name: Persistencia de Sesión
+    description: >-
+      Habilita persistencia de sesión vía tmux. Cuando está habilitado, tu
+      sesión del terminal sobrevive a actualizaciones del navegador y desconexiones.
+      Déjalo deshabilitado para el primer inicio de sesión y habilítalo para
+      trabajos de larga duración.
+  default_model:
+    name: Modelo Predeterminado
+    description: >-
+      Modelo inicial de Codex. Deja el campo vacio para usar el modelo recomendado para tu cuenta. Usa /model
+      para cambiar durante una sesion.
+  codex_permissions:
+    name: Nivel de Acceso de Codex
+    description: >-
+      Perfil de sandbox local predeterminado para Codex. Workspace permite
+      trabajo normal en el proyecto de Home Assistant. Full access usa
+      sandbox danger-full-access y elimina restricciones locales de sandbox.
+  codex_approval_policy:
+    name: Política de Aprobación de Codex
+    description: >-
+      Controla cuándo Codex pide aprobación antes de ejecutar acciones. Usa
+      on-request para seguridad interactiva, untrusted para pedir aprobación en
+      comandos no confiables, o never para ejecución autónoma sin avisos.
+  auto_update_codex:
+    name: Actualizar Codex CLI automáticamente
+    description: >-
+      Busca la versión más reciente de Codex CLI al iniciar con una instalación
+      npm limitada por tiempo. Deshabilitado por defecto para mantener un inicio
+      predecible.
+  codex_update_timeout:
+    name: Tiempo máximo de actualización
+    description: >-
+      Segundos máximos para esperar la actualización opcional de Codex CLI al
+      iniciar. Solo aplica cuando la actualización automática está habilitada.
+
+network:
+  7681/tcp: Terminal Web (ttyd)

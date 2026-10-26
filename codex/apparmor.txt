@@ -1,0 +1,76 @@
+#include <tunables/global>
+
+profile codex flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  # Capabilities needed for terminal and outbound networking
+  capability net_raw,
+  capability setgid,
+  capability setuid,
+  capability chown,
+  capability fowner,
+  capability dac_override,
+  capability dac_read_search,
+  capability sys_tty_config,
+
+  # Network access for Codex and hass-mcp
+  network,
+
+  # PTY/TTY access for terminal
+  /dev/ptmx rw,
+  /dev/pts/* rw,
+  /dev/tty* rw,
+  /dev/null rw,
+  /dev/zero r,
+  /dev/urandom r,
+
+  # System files (read-only)
+  /etc/** r,
+  /usr/** r,
+  /lib/** r,
+  /proc/** r,
+  /sys/** r,
+
+  # Execute permissions for binaries
+  /sbin/** ixr,
+  /bin/** ixr,
+  /usr/bin/** ixr,
+  /usr/sbin/** ixr,
+  /usr/lib/** ixmr,
+  /usr/local/** ixr,
+  /usr/libexec/** ixr,
+
+  # App data
+  /data/** rwk,
+
+  # Home Assistant config - main working directory
+  /homeassistant/ r,
+  /homeassistant/** rwk,
+
+  # Other mapped HA directories
+  /ssl/ r,
+  /ssl/** r,
+  /share/ r,
+  /share/** rwk,
+  /media/ r,
+  /media/** rwk,
+  /backup/ r,
+  /backup/** r,
+  /addon_configs/ r,
+  /addon_configs/** rwk,
+  /config/ r,
+  /config/** rwk,
+
+  # Codex and user home
+  /root/ r,
+  /root/** rwk,
+  /tmp/** rwk,
+
+  # Node.js modules
+  /usr/lib/node_modules/** ixmr,
+  /usr/local/lib/node_modules/** ixmr,
+
+  # User-installed npm binaries and packages in the persistent Codex home
+  /data/codex-home/users/*/.local/bin/** ixr,
+  /data/codex-home/users/*/.local/lib/node_modules/** ixmr,
+}

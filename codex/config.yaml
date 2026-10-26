@@ -1,0 +1,55 @@
+---
+name: Codex
+description: >-
+  OpenAI Codex App for Home Assistant with terminal access, model controls, and optional Home
+  Assistant MCP integration
+version: "0.3.0"
+slug: codex
+url: https://github.com/lbouriez/ha.addon.codex
+image: ghcr.io/lbouriez/ha.addon.codex
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: true
+ingress: true
+ingress_port: 7681
+ingress_stream: true
+panel_icon: mdi:code-braces
+panel_title: Codex
+homeassistant_api: true
+auth_api: true
+hassio_api: true
+hassio_role: manager
+map:
+  - homeassistant_config:rw
+  - ssl:ro
+  - share:rw
+  - media:rw
+  - addon_config:rw
+  - backup:ro
+options:
+  enable_mcp: true
+  terminal_font_size: 14
+  terminal_theme: dark
+  working_directory: /homeassistant
+  session_persistence: false
+  default_model: ""
+  codex_permissions: workspace
+  codex_approval_policy: on-request
+  auto_update_codex: false
+  codex_update_timeout: 300
+schema:
+  enable_mcp: bool
+  terminal_font_size: int(10,24)
+  terminal_theme: list(dark|light)
+  working_directory: str
+  session_persistence: bool
+  default_model: str?
+  codex_permissions: list(workspace|full_access)
+  codex_approval_policy: list(on-request|never|untrusted)
+  auto_update_codex: bool
+  codex_update_timeout: int(30,300)
+environment:
+  TERM: xterm-256color

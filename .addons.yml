@@ -1,6 +1,10 @@
 ---
 channel: stable
 addons:
+  codex:
+    repository: lbouriez/ha.addon.codex
+    target: codex
+    image: ghcr.io/lbouriez/ha.addon.codex
   plex:
     repository: lbouriez/addon-plex
     target: plex
