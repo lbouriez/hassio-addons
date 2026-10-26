@@ -75,6 +75,7 @@ When referring to HA Core's `/config`, use `/homeassistant` in this App. The App
 | `terminal_theme` | `dark` | Chooses the terminal color theme |
 | `working_directory` | `/homeassistant` | Sets the starting folder |
 | `session_persistence` | `false` | Reattaches terminal sessions through tmux when enabled |
+| `yolo_mode` | `false` | Launches Codex without its sandbox or approval prompts |
 | `default_model` | blank | Uses the Codex recommended model; set a model ID to override |
 | `codex_permissions` | `workspace` | Selects Codex local sandbox behavior |
 | `codex_approval_policy` | `on-request` | Selects when Codex asks before running actions |
@@ -117,14 +118,18 @@ When `workspace` is selected, Codex uses its Linux sandbox runtime inside the Ap
 | `untrusted` | `approval_policy = "untrusted"` | Trusted read-style commands run, higher-risk commands ask |
 | `never` | `approval_policy = "never"` | Codex does not ask for approval before actions |
 
-For autonomous operation, set:
+For YOLO mode, enable **YOLO mode** in the App settings and restart:
 
 ```yaml
-codex_permissions: full_access
-codex_approval_policy: never
+yolo_mode: true
 ```
 
-This is intentionally explicit. `full_access` removes the local sandbox and `never` removes action approval prompts. Only use both when you are comfortable letting Codex run commands inside the App container without per-action confirmation.
+This launches Codex with `--dangerously-bypass-approvals-and-sandbox` and sets the
+managed defaults to `full_access` and `never`. While enabled, it overrides the
+two individual options without changing their saved values. Disable YOLO and
+restart to restore those options. Container, AppArmor and HA permissions still
+apply; this does not grant host root access. Commands and HA changes can run
+without asking you first.
 
 ## Home Assistant MCP
 
@@ -211,6 +216,16 @@ Codex loads project config only after the project is trusted.
 Session persistence is off by default because first-time authentication is usually simpler without tmux.
 
 After Codex is authenticated, enable `session_persistence` if you want browser refreshes and disconnects to reattach to the same tmux session.
+
+With this enabled, closing the page leaves the terminal and ongoing work running
+while the App stays up. Reopening the page attaches to the same terminal. Work
+can still pause for approval or other input. Without it, the terminal is tied to
+the browser connection; a background daemon or saved chat is not a replacement
+for retaining that terminal. Saved chats can be reopened with `codex resume`.
+
+An App stop, restart, update or VM reboot ends running processes and the tmux
+session. Login state and recorded chat history remain in persistent `/data`;
+unfinished work does not automatically resume after a restart.
 
 Useful tmux keys:
 

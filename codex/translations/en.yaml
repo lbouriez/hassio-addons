@@ -26,6 +26,11 @@ configuration:
       Enable tmux session persistence. When enabled, your terminal session
       survives browser refreshes and disconnects. Leave disabled for the
       smoothest first sign-in flow, then enable for long-running work.
+  yolo_mode:
+    name: YOLO mode
+    description: >-
+      Launch Codex without its local sandbox or approval prompts. Overrides the access level and approval
+      policy while enabled. Restart the App to apply. Container and HA permissions still apply.
   default_model:
     name: Default Model
     description: >-

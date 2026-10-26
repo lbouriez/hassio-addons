@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2026-10-26
+
+### Added
+- Optional `yolo_mode` setting, disabled by default, to launch Codex with sandbox and approvals bypassed. It overrides the two individual access options while enabled and restores their saved values when disabled after restart.
+- Terminal lifecycle regression checks for YOLO on/off and tmux disconnect/reattach behavior.
+- Run terminal lifecycle checks under the shipped AppArmor profile in CI.
+
+### Clarified
+- `session_persistence` keeps the terminal and work alive through browser disconnects, but not App/VM restarts. Login and recorded history persist independently.
+
+### Fixed
+- Permit the root terminal supervisor to signal its unprivileged client processes on disconnect under AppArmor.
+
 ## [0.4.1] - 2026-10-26
 
 ### Fixed

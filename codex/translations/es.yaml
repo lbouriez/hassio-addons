@@ -27,6 +27,12 @@ configuration:
       sesión del terminal sobrevive a actualizaciones del navegador y desconexiones.
       Déjalo deshabilitado para el primer inicio de sesión y habilítalo para
       trabajos de larga duración.
+  yolo_mode:
+    name: Modo YOLO
+    description: >-
+      Inicia Codex sin sandbox local ni solicitudes de aprobacion. Sustituye el nivel de acceso y la
+      politica de aprobacion mientras este activado. Reinicia la App para aplicar. Se mantienen los permisos
+      del contenedor y HA.
   default_model:
     name: Modelo Predeterminado
     description: >-

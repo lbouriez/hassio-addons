@@ -9,6 +9,8 @@ profile codex flags=(attach_disconnected,mediate_deleted) {
   capability setuid,
   capability chown,
   capability fowner,
+  # ttyd runs as root and signals terminal clients after dropping their UID.
+  capability kill,
   capability dac_override,
   capability dac_read_search,
   capability sys_tty_config,
