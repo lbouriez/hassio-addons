@@ -3,9 +3,8 @@ configuration:
   enable_mcp:
     name: Habilitar MCP de Home Assistant
     description: >-
-      Habilita el servidor MCP de Home Assistant para interacción directa con
-      entidades y servicios desde Codex. Permite que Codex consulte estados,
-      llame servicios e interactúe con tu hogar inteligente.
+      Activa el servidor MCP oficial de Home Assistant. La app se conecta y autentica automaticamente
+      mediante Supervisor, sin URL ni token manual.
   terminal_font_size:
     name: Tamaño de Fuente del Terminal
     description: >-

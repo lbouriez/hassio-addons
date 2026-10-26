@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-10-26
+
+### Changed
+- Connect only to Home Assistant's official Model Context Protocol Server through the internal Supervisor proxy, using the add-on credential automatically. No manual URL, token, OAuth setup or third-party MCP fallback.
+- Remove the bundled `hass-mcp` dependency and its privileged wrapper. Migrate managed Codex MCP configuration to the official bridge, preserving unrelated servers.
+- Provide actionable connectivity status at startup and through `ha-api status`; keep the terminal available when HA is starting or the official integration is unavailable.
+
+### Added
+- Authenticated `ha-api` commands for Core REST, Supervisor management/logs/configuration checks, and WebSocket queries or event subscriptions.
+- Fixed-destination credential helpers that keep the Supervisor token out of Codex configuration and the interactive shell; reject redirects and external API URLs.
+- AppArmor permissions for the Python clients' native extension libraries.
+- Codex instructions covering actual API commands, configuration validation and safe handling of UI-managed settings.
+- End-to-end container tests against a local HA protocol fixture for official MCP tools/resources/prompts, REST, WebSocket, Supervisor operations, unprivileged file access and token isolation.
+
 ## [0.3.0] - 2026-10-26
 
 ### Changed

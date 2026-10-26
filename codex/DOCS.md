@@ -12,7 +12,8 @@ It is designed as a Home Assistant-native App, not a copied terminal wrapper. Th
 4. Codex state is stored under `/data/codex-home/users/anonymous/.codex`.
 5. The App generates user-level Codex defaults in `~/.codex/config.toml`.
 6. The App generates `~/.codex/AGENTS.md` with Home Assistant path mapping, log commands, and MCP notes.
-7. If MCP is enabled, Codex gets a managed `homeassistant` MCP server that talks to Home Assistant through `hass-mcp`.
+7. If MCP is enabled, Codex connects to the official Home Assistant MCP Server through an authenticated internal bridge.
+8. `ha-api` gives the session authenticated REST, WebSocket and Supervisor access without exposing a token in its environment.
 
 The App keeps OpenAI credentials out of Home Assistant options. Codex signs in using its own CLI authentication flow and stores its own auth state in the persistent Codex home.
 
@@ -20,7 +21,7 @@ The App keeps OpenAI credentials out of Home Assistant options. Codex signs in u
 
 1. Add `https://github.com/lbouriez/hassio-addons` to the Home Assistant Add-on Store repositories.
 2. Install **Codex**.
-3. Review the App options.
+3. Enable the official **Model Context Protocol Server** integration in Home Assistant and leave the App's `enable_mcp` option on.
 4. Start Codex.
 5. Open Codex from the Home Assistant sidebar.
 
@@ -63,7 +64,7 @@ The useful paths are:
 | `/ssl` | SSL certificates | Read-only |
 | `/backup` | Backups | Read-only |
 
-When Codex or a prompt mentions `/config`, treat it as `/homeassistant` in this App.
+When referring to HA Core's `/config`, use `/homeassistant` in this App. The App's own `/config` mount is separate. These mounts do not give access to the VM host filesystem.
 
 ## App Options
 
@@ -127,11 +128,59 @@ This is intentionally explicit. `full_access` removes the local sandbox and `nev
 
 ## Home Assistant MCP
 
-When `enable_mcp` is `true`, the App registers a `homeassistant` MCP server in Codex. This lets Codex query entities, inspect state, read Home Assistant information, and call services through MCP tools.
+Enable Home Assistant's official [Model Context Protocol Server](https://www.home-assistant.io/integrations/mcp_server/)
+integration. With `enable_mcp: true`, the App registers `homeassistant` in Codex
+and connects to `http://supervisor/core/api/mcp` using its Supervisor credential.
+No IP address, external URL, long-lived token or separate HA sign-in is needed.
+The existing Codex/ChatGPT sign-in remains independent.
 
-The Supervisor token is not exported into the interactive shell. It is written to a protected runtime file and passed only through the helper path used by `hass-mcp`.
+The integration is detected through a real MCP initialization handshake whenever
+Codex connects. There is no third-party MCP dependency or fallback. The official
+server controls which LLM APIs, tools and entities it exposes. If it is absent,
+unreachable or denies access, the App reports that condition and leaves the
+terminal and API tools usable. Use a current HA Core and Supervisor; older
+Supervisor versions may not proxy the MCP headers correctly.
 
-Disable MCP if you only want a terminal and file-editing workflow.
+The Supervisor token is kept in a root-only runtime file. The official MCP bridge
+and API helper authenticate internally; the token is not written into Codex
+configuration, put on command lines, or exported into the interactive shell.
+
+## API access and maintenance
+
+The authenticated `ha-api` helper is available even with MCP disabled:
+
+```bash
+ha-api status
+ha-api core GET /states
+ha-api core GET /config
+ha-api supervisor GET /core/info
+ha-api supervisor GET /core/logs
+ha-api supervisor POST /core/check
+printf '%s' '{"type":"config/entity_registry/list"}' | ha-api ws
+printf '%s' '{"type":"subscribe_events","event_type":"state_changed"}' | ha-api ws --follow
+```
+
+Use `core METHOD /path` for Core REST paths relative to `/api`, or
+`supervisor METHOD /path` for Supervisor paths. POST/PUT/PATCH accept optional
+JSON on stdin. WebSocket mode authenticates automatically and assigns the
+request ID; `--follow` keeps printing subscription events until interrupted.
+Only the internal Supervisor destination is allowed. Redirects are rejected.
+Requests retain HA's normal permissions and the App's Supervisor `manager` role.
+
+For example, an explicitly requested service action can use:
+
+```bash
+printf '%s' '{"entity_id":"light.example"}' | ha-api core POST /services/light/turn_on
+```
+
+The bare `ha` CLI is installed but is not preauthenticated. Use `ha-api` for
+authenticated operations. Codex's existing sandbox/approval options still apply
+to shell commands; the App does not enable root sessions or remove approvals.
+
+Read/edit YAML in `/homeassistant`, validate using `/core/check`, then verify
+states after an authorized reload or restart. For UI-managed configuration, use
+supported HA API commands or the UI instead of directly editing `.storage`.
+Availability of individual configuration APIs depends on the integration.
 
 ## Persistence
 
@@ -253,7 +302,8 @@ Version `0.2.13` removes that incompatible UI state automatically and keeps the 
 1. Confirm `enable_mcp` is `true`.
 2. Restart the App after changing the option.
 3. In Codex, check whether the `homeassistant` MCP server appears.
-4. Check the App log for `hass-mcp` or Supervisor token errors.
+4. Run `ha-api status`: `official_mcp` should be `available`.
+5. `absent` means the official endpoint returned 404; enable the MCP Server integration. `access_denied` means HA rejected authorization. `unreachable` means the handshake failed or timed out. Check HA Core/Supervisor logs and the integration settings; do not disable authentication to work around an error.
 
 ### Project config is ignored
 

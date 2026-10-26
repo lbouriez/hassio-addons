@@ -13,7 +13,7 @@ profile codex flags=(attach_disconnected,mediate_deleted) {
   capability dac_read_search,
   capability sys_tty_config,
 
-  # Network access for Codex and hass-mcp
+  # Network access for Codex, official HA MCP and the fixed-destination API helper
   network,
 
   # PTY/TTY access for terminal
@@ -38,6 +38,8 @@ profile codex flags=(attach_disconnected,mediate_deleted) {
   /usr/sbin/** ixr,
   /usr/lib/** ixmr,
   /usr/local/** ixr,
+  # Native Python extensions used by the official MCP and API clients
+  /usr/local/lib/python*/**.so* mr,
   /usr/libexec/** ixr,
 
   # App data

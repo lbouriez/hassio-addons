@@ -3,9 +3,8 @@ configuration:
   enable_mcp:
     name: Enable Home Assistant MCP
     description: >-
-      Enable the Home Assistant MCP server for direct entity and service
-      interaction from Codex. Allows Codex to query states, call services,
-      and interact with your smart home.
+      Enable the official Home Assistant MCP Server. The App connects and authenticates automatically
+      through Supervisor. No URL or token is required.
   terminal_font_size:
     name: Terminal Font Size
     description: >-
