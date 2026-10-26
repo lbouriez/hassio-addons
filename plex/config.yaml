@@ -1,22 +1,23 @@
+---
 arch:
-- aarch64
-- amd64
-- armv7
+  - aarch64
+  - amd64
+  - armv7
 backup_exclude:
-- '**/Plex Media Server/Cache/**'
-- '**/Plex Media Server/Plug-in Support/Caches/**'
-- '**/Plex Media Server/Logs/**'
-- '**/Plex Media Server/Crash Reports/**'
-- '**/Plex Media Server/Diagnostics/**'
+  - '**/Plex Media Server/Cache/**'
+  - '**/Plex Media Server/Plug-in Support/Caches/**'
+  - '**/Plex Media Server/Logs/**'
+  - '**/Plex Media Server/Crash Reports/**'
+  - '**/Plex Media Server/Diagnostics/**'
 description: Recorded media, live TV, online news, and podcasts ready to stream.
 full_access: true
 hassio_api: true
 image: ghcr.io/lbouriez/addon-plex/{arch}
 init: false
 map:
-- media:rw
-- share:rw
-- ssl
+  - media:rw
+  - share:rw
+  - ssl
 name: Plex Media Server
 options:
   cifspassword: <password>
@@ -43,8 +44,8 @@ ports_description:
   32469/tcp: Plex DLNA Server
   8324/tcp: Plex for Roku via Plex Companion
 privileged:
-- SYS_ADMIN
-- DAC_READ_SEARCH
+  - SYS_ADMIN
+  - DAC_READ_SEARCH
 schema:
   cifspassword: str
   cifsusername: str
@@ -52,7 +53,7 @@ schema:
   claim_code: str
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   networkdisks:
-  - str
+    - str
   webtools: bool
 slug: plex
 startup: services
