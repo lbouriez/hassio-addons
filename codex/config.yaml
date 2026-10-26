@@ -3,7 +3,7 @@ name: Codex
 description: >-
   OpenAI Codex App for Home Assistant with terminal access, model controls, and optional Home
   Assistant MCP integration
-version: "0.4.3"
+version: "0.5.0"
 slug: codex
 url: https://github.com/lbouriez/ha.addon.codex
 image: ghcr.io/lbouriez/ha.addon.codex
@@ -44,6 +44,9 @@ schema:
   enable_mcp: bool
   terminal_font_size: int(10,24)
   terminal_theme: list(dark|light)
+  terminal_scrollback: int(1000,50000)?
+  preserve_terminal_history: bool?
+  reasoning_effort: list(default|low|medium|high|xhigh|max|ultra)?
   working_directory: str
   session_persistence: bool
   yolo_mode: bool?

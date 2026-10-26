@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2026-10-26
+
+### Added
+- Browser terminal toolbar with Copy, Paste, History, download and Latest controls, including French labels.
+- Native clipboard shortcuts and a visible text fallback when HTTP or iframe permissions block clipboard access.
+- Optional `terminal_scrollback` (10000 lines), `preserve_terminal_history` (true), and `reasoning_effort` (default) settings. Existing saved options remain valid.
+- `ha-api check`, `ha-api reload <domain>` and `ha-api restart`; reload/restart shortcuts require a successful fresh configuration check.
+- Browser regression checks for clipboard, history, ingress paths and small screens.
+
+### Fixed
+- Stop tmux capturing normal mouse selection; retain keyboard copy mode and session persistence.
+- Pass terminal themes as JSON so ttyd applies foreground/background correctly.
+
 ## [0.4.3] - 2026-10-26
 
 ### Fixed

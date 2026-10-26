@@ -15,6 +15,19 @@ configuration:
     description: >-
       Tema de cores do terminal web.
       Escolha 'dark' para fundo escuro ou 'light' para fundo claro.
+  terminal_scrollback:
+    name: Tamanho do histórico
+    description: >-
+      Linhas de histórico (1000-50000). Padrão 10000. Reinicie para aplicar.
+  preserve_terminal_history:
+    name: Preservar histórico
+    description: >-
+      Mantém a saída do Codex no histórico. Ativado por padrão. Reinicie para aplicar.
+  reasoning_effort:
+    name: Esforço de raciocínio
+    description: >-
+      Use default para manter o ajuste do Codex ou escolha um nível compatível com seu modelo. Reinicie para
+      aplicar.
   working_directory:
     name: Diretório de Trabalho
     description: >-

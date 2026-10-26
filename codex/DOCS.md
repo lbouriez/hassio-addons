@@ -19,7 +19,7 @@ The App keeps OpenAI credentials out of Home Assistant options. Codex signs in u
 
 ## Install
 
-1. Add `https://github.com/lbouriez/hassio-addons` to the Home Assistant Add-on Store repositories.
+1. Add `https://github.com/lbouriez/ha.addon.codex` to the Home Assistant Add-on Store repositories.
 2. Install **Codex**.
 3. Enable the official **Model Context Protocol Server** integration in Home Assistant and leave the App's `enable_mcp` option on.
 4. Start Codex.
@@ -68,11 +68,37 @@ When referring to HA Core's `/config`, use `/homeassistant` in this App. The App
 
 ## App Options
 
+### Terminal clipboard and history
+
+The toolbar provides **Copy**, **Paste**, **History** (with a text download), and
+**Latest**. Drag to select terminal text; use Shift + drag if a terminal program
+captures the mouse. Ctrl/Cmd+C copies a selection; Ctrl+C without a selection
+still interrupts the running command. Ctrl/Cmd+V uses normal browser paste.
+
+When HTTP or HA iframe permissions block direct clipboard access, **Paste** opens
+a text field: paste there with your keyboard or device menu, then choose
+**Insert**. **Copy** similarly provides selected text for native copying. No
+extra Enter is appended. Multiline paste is handled by the terminal's bracketed
+paste support; the receiving program determines how it handles the text.
+
+**History** shows the buffer currently available in this browser, not all past
+Codex conversations. Reconnecting can reconstruct only part of that buffer from
+tmux. For older persistent tmux output, use Ctrl+B then `[` and leave copy mode
+with `q`. Authentication and saved Codex conversations remain in `/data`.
+
+New settings are optional so existing installations can still save their options.
+The defaults below also apply when those fields are absent. Restart the App after
+changing them. Set `preserve_terminal_history: false` to restore the full-screen
+Codex UI. Session persistence remains a separate setting.
+
 | Option | Default | What it does |
 |--------|---------|--------------|
 | `enable_mcp` | `true` | Adds the managed `homeassistant` MCP server to Codex |
 | `terminal_font_size` | `14` | Sets terminal font size, clamped to `10-24` |
 | `terminal_theme` | `dark` | Chooses the terminal color theme |
+| `terminal_scrollback` | `10000` | Browser and new tmux pane history, from 1000 to 50000 lines |
+| `preserve_terminal_history` | `true` | Starts Codex with `--no-alt-screen` and keeps tmux output in scrollback |
+| `reasoning_effort` | `default` | Keeps Codex's setting, or overrides it for new launches |
 | `working_directory` | `/homeassistant` | Sets the starting folder |
 | `session_persistence` | `false` | Reattaches terminal sessions through tmux when enabled |
 | `yolo_mode` | `false` | Launches Codex without its sandbox or approval prompts |
@@ -94,6 +120,26 @@ Change models in either place:
 - Use `/model` inside Codex for the current session.
 
 Leave `default_model` blank if you want Codex to use its own default or if you manage the model in project config.
+
+`reasoning_effort` accepts `default`, `low`, `medium`, `high`, `xhigh`, `max`, or
+`ultra`. Choose a value supported by the selected model; account/model support
+is determined by Codex. `default` passes no override and preserves your own
+configuration. The App does not maintain a hard-coded model compatibility list.
+
+## Home Assistant maintenance shortcuts
+
+```bash
+ha-api check
+ha-api reload automation
+ha-api reload script
+ha-api restart
+```
+
+Reload supports `automation`, `script`, `scene`, `group`, `template`, and `core`
+(general core configuration). Every reload/restart shortcut runs a fresh
+Supervisor configuration check first and stops if it fails. Only request reloads
+or restarts when you intend to perform them. These shortcuts do not restrict
+the existing generic REST, WebSocket, or Supervisor APIs.
 
 ## Access Levels
 

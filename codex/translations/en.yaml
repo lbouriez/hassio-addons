@@ -15,6 +15,18 @@ configuration:
     description: >-
       Color theme for the web terminal.
       Choose 'dark' for dark backgrounds or 'light' for light backgrounds.
+  terminal_scrollback:
+    name: Terminal history size
+    description: >-
+      Number of history lines (1000-50000). Defaults to 10000 when omitted. Restart to apply.
+  preserve_terminal_history:
+    name: Preserve terminal history
+    description: >-
+      Keep Codex output in scrollback with inline mode. Defaults to enabled when omitted. Restart to apply.
+  reasoning_effort:
+    name: Reasoning effort
+    description: >-
+      Choose default to keep Codex's own setting, or select an effort supported by your model. Restart to apply.
   working_directory:
     name: Working Directory
     description: >-
