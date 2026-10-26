@@ -305,6 +305,22 @@ Version `0.2.13` removes that incompatible UI state automatically and keeps the 
 4. Run `ha-api status`: `official_mcp` should be `available`.
 5. `absent` means the official endpoint returned 404; enable the MCP Server integration. `access_denied` means HA rejected authorization. `unreachable` means the handshake failed or timed out. Check HA Core/Supervisor logs and the integration settings; do not disable authentication to work around an error.
 
+### Managed daemon fails with Permission denied
+
+Update to version 0.4.1 or later if the error points to
+`.codex/packages/app-server-daemon/releases/.staging.*/bin/codex`.
+Earlier AppArmor rules permitted writing this package but not executing it.
+Codex validates the staged binary before activating a release, so retrying
+simply creates another staging directory and fails again.
+
+Version 0.4.1 adds scoped execution permissions for these managed package
+programs and installs `procps` for daemon process tracking. It keeps the daemon
+and AppArmor enabled. No credential reset or reinstallation is required.
+
+From the diagnostic shell, `codex app-server daemon version` should report
+`running` once Codex has started. If the error remains after updating, inspect
+the host's AppArmor denial logs and mount options before changing permissions.
+
 ### Project config is ignored
 
 1. Confirm the file is `/homeassistant/.codex/config.toml`.

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2026-10-26
+
+### Fixed
+- Allow AppArmor execution and executable mapping of Codex-managed daemon package programs, including temporary `.staging.*` releases used during installation. Keep the daemon enabled and retain the AppArmor profile.
+- Install `procps`: Codex's daemon process tracking needs `ps -p PID -o stat= -o lstart=`, which Alpine's BusyBox `ps` does not support.
+- Allow listing `/proc/` for process tracking and `/tmp/` for runtime discovery; descendant-file rules alone did not permit these directory reads.
+
+### Added
+- Real daemon install/start/version/stop/restart smoke tests as the unprivileged runtime user, with networking disabled and no account credentials. CI also runs them under the shipped AppArmor profile.
+- Capture daemon and AppArmor denial diagnostics when a confined startup fails.
+
 ## [0.4.0] - 2026-10-26
 
 ### Changed
