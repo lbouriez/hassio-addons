@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.1] - 2026-10-28
+
+### Fixed
+- Restore phone swipe scrolling through terminal scrollback even when an application enables mouse reporting; gestures do not send input to the running command.
+- Use the phone viewport width instead of a desktop-sized layout.
+- Let the History dialog scroll naturally on touch devices without preselecting its entire contents.
+- Add real browser touch-gesture regression checks in direct and HA-style iframe views.
+
 ## [0.5.0] - 2026-10-26
 
 ### Added

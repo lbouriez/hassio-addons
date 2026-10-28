@@ -81,6 +81,12 @@ a text field: paste there with your keyboard or device menu, then choose
 extra Enter is appended. Multiline paste is handled by the terminal's bracketed
 paste support; the receiving program determines how it handles the text.
 
+On a phone, swipe down over terminal output to see older lines, or swipe up to
+return toward recent output. Swipes browse local scrollback even when Codex
+enables mouse reporting. **Latest** returns to the bottom. The **History** dialog
+also supports normal touch scrolling. Keep `preserve_terminal_history` enabled
+for scrollback; full-screen alternate-buffer applications have no local history.
+
 **History** shows the buffer currently available in this browser, not all past
 Codex conversations. Reconnecting can reconstruct only part of that buffer from
 tmux. For older persistent tmux output, use Ctrl+B then `[` and leave copy mode
