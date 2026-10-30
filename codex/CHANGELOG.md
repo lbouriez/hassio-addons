@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.2] - 2026-10-30
+
+### Added
+- Paste clipboard images or use the Image button to save PNG, JPEG, GIF and WebP files under `/homeassistant/tmp/codex` (HA Core's `/config/tmp/codex`) and insert their local paths into the current prompt without submitting it.
+- Image uploads through the existing HA ingress session, with a 10 MB limit, generated filenames, file signature checks and an unprivileged writer. No new options or exposed ports.
+- Browser regression coverage for native image paste, clipboard-restricted iframe fallback, phone file selection, text paste and upload failures; HTTP tests cover upload boundaries and symlink rejection.
+
+### Changed
+- Serve ttyd and the image upload endpoint behind a shared ingress proxy while keeping terminal WebSocket connections and session persistence.
+
 ## [0.5.1] - 2026-10-28
 
 ### Fixed

@@ -7,7 +7,7 @@ It is designed as a Home Assistant-native App, not a copied terminal wrapper. Th
 ## How It Works
 
 1. Home Assistant opens Codex through ingress.
-2. `ttyd` serves a browser terminal on port `7681`.
+2. An ingress proxy on port `7681` serves the `ttyd` browser terminal and image uploads. Internal services listen only on loopback.
 3. The terminal starts in `/homeassistant`, which is the Home Assistant configuration folder inside this container.
 4. Codex state is stored under `/data/codex-home/users/anonymous/.codex`.
 5. The App generates user-level Codex defaults in `~/.codex/config.toml`.
@@ -70,7 +70,7 @@ When referring to HA Core's `/config`, use `/homeassistant` in this App. The App
 
 ### Terminal clipboard and history
 
-The toolbar provides **Copy**, **Paste**, **History** (with a text download), and
+The toolbar provides **Copy**, **Paste**, **Image**, **History** (with a text download), and
 **Latest**. Drag to select terminal text; use Shift + drag if a terminal program
 captures the mouse. Ctrl/Cmd+C copies a selection; Ctrl+C without a selection
 still interrupts the running command. Ctrl/Cmd+V uses normal browser paste.
@@ -80,6 +80,22 @@ a text field: paste there with your keyboard or device menu, then choose
 **Insert**. **Copy** similarly provides selected text for native copying. No
 extra Enter is appended. Multiline paste is handled by the terminal's bracketed
 paste support; the receiving program determines how it handles the text.
+
+Paste a screenshot with Ctrl/Cmd+V, or choose **Image** to select a picture on
+your phone or computer. **Paste** also reads images when the browser permits
+clipboard access; the fallback paste field accepts native image paste too.
+The App uploads the image to `/homeassistant/tmp/codex` (the same folder as
+`/config/tmp/codex` in HA Core) and inserts its local path into your draft.
+Add a request such as "Explain this screenshot" and press Enter yourself.
+This automates copying the file and referring to it; it is not a native image
+attachment in the Codex prompt. No Enter is sent automatically.
+
+PNG, JPEG, GIF and WebP images smaller than 10 MB are supported. Files get unique
+names, stay in the HA configuration folder across App updates, and are not
+automatically deleted; remove files from `tmp/codex` when no longer needed.
+Clipboard image availability depends on the browser/device; **Image** works
+without clipboard permission. Upload failures show a message and insert no path.
+No new App option or manual upload-server configuration is needed.
 
 On a phone, swipe down over terminal output to see older lines, or swipe up to
 return toward recent output. Swipes browse local scrollback even when Codex
