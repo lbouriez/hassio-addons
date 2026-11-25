@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.4] - 2026-11-25
+
+### Fixed
+- Direct SQLite temporary files to `/tmp`, where the add-on's AppArmor profile allows writes. This lets the managed Codex daemon complete index migrations on existing databases.
+
 ## [0.5.3] - 2026-11-25
 
 ### Added

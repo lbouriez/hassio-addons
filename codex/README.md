@@ -3,15 +3,15 @@
 Run OpenAI Codex from the Home Assistant sidebar to inspect, edit and maintain
 Home Assistant configuration, with automatic official HA MCP connection and authenticated maintenance APIs.
 
-- Version: **0.5.3** (Codex CLI **0.164.0**).
+- Version: **0.5.4** (Codex CLI **0.164.0**).
 - Architectures: **AMD64** and **ARM64**.
-- Image: `ghcr.io/lbouriez/ha.addon.codex:0.5.3`.
+- Image: `ghcr.io/lbouriez/ha.addon.codex:0.5.4`.
 - [Usage and configuration](DOCS.md).
 - [Changelog](CHANGELOG.md).
 - [Source and issues](https://github.com/lbouriez/ha.addon.codex).
 
 Install Codex from this catalogue in the Home Assistant App/Add-on Store.
-The source snapshot is `lbouriez/ha.addon.codex@08c3c13`.
+The source snapshot is `lbouriez/ha.addon.codex@e2ddf3f`.
 
 Forked from [kecksdigital/codex-hass](https://github.com/kecksdigital/codex-hass).
 Original MIT attribution is preserved in [LICENSE](LICENSE).

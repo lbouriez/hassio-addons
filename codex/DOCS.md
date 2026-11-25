@@ -422,6 +422,16 @@ From the diagnostic shell, `codex app-server daemon version` should report
 `running` once Codex has started. If the error remains after updating, inspect
 the host's AppArmor denial logs and mount options before changing permissions.
 
+### Managed daemon fails during SQLite migration
+
+If the daemon reports `unable to open database file` during migration 64,
+update the add-on to 0.5.4 or later. The image directs SQLite's temporary index
+files to `/tmp`, a directory writable under the add-on's AppArmor profile.
+The daemon can retry the migration on the existing state database.
+
+On an older image, type `shell` at the retry prompt and run
+`SQLITE_TMPDIR=/tmp /usr/local/bin/codex-shell` to reopen Codex in that terminal.
+
 ### Project config is ignored
 
 1. Confirm the file is `/homeassistant/.codex/config.toml`.
