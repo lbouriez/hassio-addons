@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.5] - 2026-11-25
+
+### Fixed
+- Add a compact Write editor on touch devices and open keyboard dictation in the same top-aligned editor. It stays reachable when an Android WebView overlays the keyboard without resizing the page, including on private HTTP addresses.
+- Return to the latest terminal output when the visible area shrinks while the terminal has focus. Inserted mobile drafts remain editable and wait for Enter.
+
 ## [0.5.4] - 2026-11-25
 
 ### Fixed
