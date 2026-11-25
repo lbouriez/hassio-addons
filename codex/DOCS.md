@@ -68,33 +68,12 @@ When referring to HA Core's `/config`, use `/homeassistant` in this App. The App
 
 ## App Options
 
-### Terminal dictation, clipboard and history
+### Terminal clipboard and history
 
-The toolbar provides **Copy**, **Paste**, **Dictate**, **Image**, **History** (with a text download), and
+The toolbar provides **Copy**, **Paste**, **Image**, **History** (with a text download), and
 **Latest**. Drag to select terminal text; use Shift + drag if a terminal program
 captures the mouse. Ctrl/Cmd+C copies a selection; Ctrl+C without a selection
 still interrupts the running command. Ctrl/Cmd+V uses normal browser paste.
-
-On a touch device, choose **Write** to type into a compact field at the top of
-the screen. It stays accessible when the keyboard covers the bottom of a WebView.
-Choose **Insert** to add the text at the terminal cursor. Press Enter in Codex
-when you are ready to send it.
-
-With the Codex prompt active, choose **Dictate**, allow the microphone if
-prompted, and speak. Choose **Stop** when finished. The browser may also finish
-on its own after a pause, especially on Android. The transcript goes at the
-terminal cursor, where you can edit it before pressing Enter to send.
-
-Browser dictation uses the device's preferred browser language. Open Home
-Assistant over HTTPS for microphone access. Chrome and the Home Assistant
-Android app depend on the device's speech service and microphone permissions.
-On HTTP, including a private Tailscale HTTP address, **Dictate** opens the compact
-editor for keyboard dictation. Tap the field if the keyboard is closed, use the
-keyboard's microphone, then choose **Insert**. For direct browser dictation over
-Tailscale, [Tailscale Serve](https://tailscale.com/docs/features/tailscale-serve)
-can provide an HTTPS address within the tailnet. The browser or keyboard may
-send audio to its speech service for transcription. The add-on receives the
-resulting text through terminal input.
 
 When HTTP or HA iframe permissions block direct clipboard access, **Paste** opens
 a text field: paste there with your keyboard or device menu, then choose
@@ -333,7 +312,7 @@ If copying text behaves oddly while tmux is active, hold `Ctrl+Shift` while sele
 
 ## Codex CLI Updates
 
-The image pins Codex CLI `0.164.0`, the stable npm release verified on 2026-10-26. The version is declared in `codex/Dockerfile` as `CODEX_VERSION`. For predictable startup, the App does not auto-update Codex by default.
+The image pins Codex CLI `0.172.0`, the stable npm release verified on 2026-11-25. The version is declared in `codex/Dockerfile` as `CODEX_VERSION`. For predictable startup, the App does not auto-update Codex by default.
 
 Enable `auto_update_codex` if you want the App to run this on startup:
 

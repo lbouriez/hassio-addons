@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.6] - 2026-11-25
+
+### Removed
+- Remove the Dictate and mobile Write buttons and restore the terminal layout from before the on-screen keyboard workarounds.
+
+### Changed
+- Update the bundled Codex CLI to 0.172.0 and the terminal browser tests to Playwright 1.65.1.
+
 ## [0.5.5] - 2026-11-25
 
 ### Fixed
