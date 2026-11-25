@@ -68,12 +68,25 @@ When referring to HA Core's `/config`, use `/homeassistant` in this App. The App
 
 ## App Options
 
-### Terminal clipboard and history
+### Terminal dictation, clipboard and history
 
-The toolbar provides **Copy**, **Paste**, **Image**, **History** (with a text download), and
+The toolbar provides **Copy**, **Paste**, **Dictate**, **Image**, **History** (with a text download), and
 **Latest**. Drag to select terminal text; use Shift + drag if a terminal program
 captures the mouse. Ctrl/Cmd+C copies a selection; Ctrl+C without a selection
 still interrupts the running command. Ctrl/Cmd+V uses normal browser paste.
+
+With the Codex prompt active, choose **Dictate**, allow the microphone if
+prompted, and speak. Choose **Stop** when finished. The browser may also finish
+on its own after a pause, especially on Android. The transcript goes at the
+terminal cursor, where you can edit it before pressing Enter to send.
+
+Browser dictation uses the device's preferred browser language. Open Home
+Assistant over HTTPS for microphone access. Chrome and the Home Assistant
+Android app depend on the device's speech service and microphone permissions.
+If browser dictation is unavailable, the **Dictate** dialog lets you speak using
+your keyboard's microphone, if available, and choose **Insert**. The browser or
+keyboard may send audio to its speech service for transcription. The add-on
+receives the resulting text through terminal input.
 
 When HTTP or HA iframe permissions block direct clipboard access, **Paste** opens
 a text field: paste there with your keyboard or device menu, then choose

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.3] - 2026-11-25
+
+### Added
+- Dictate button in the web terminal. Speak into the device microphone, then review the transcript in the current Codex draft and press Enter yourself to send it.
+- Keyboard dictation fallback when the browser or the Android WebView cannot start speech recognition.
+
+### Fixed
+- Keep the terminal's input line and text dialogs above the on-screen keyboard in the browser and Home Assistant ingress.
+
 ## [0.5.2] - 2026-10-30
 
 ### Added
